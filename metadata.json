@@ -1,0 +1,6 @@
+{
+  "name": "ศูนย์สืบสวนคดีฉ้อโกงออนไลน์ (Online Fraud Investigation Center)",
+  "description": "ศูนย์กลางในการรับแจ้ง ตรวจสอบ และติดตามคดีฉ้อโกงออนไลน์ โดยทีมผู้เชี่ยวชาญ เพื่อให้คุณได้รับความช่วยเหลืออย่างรวดเร็ว",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

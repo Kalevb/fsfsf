@@ -1,0 +1,16 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /evidence/{caseId}/{fileName} {
+      // อนุญาตให้ผู้ที่เข้าสู่ระบบแล้วอ่านไฟล์หลักฐานได้
+      allow read: if request.auth != null;
+      
+      // อนุญาตให้อัปโหลดไฟล์ขนาดไม่เกิน 10MB และจำกัดเฉพาะชนิดไฟล์รูปภาพ PDF หรือ MP4
+      allow write: if request.auth != null
+                   && request.resource.size <= 10 * 1024 * 1024
+                   && (request.resource.contentType.matches('image/(jpeg|png|webp)')
+                       || request.resource.contentType == 'application/pdf'
+                       || request.resource.contentType == 'video/mp4');
+    }
+  }
+}
